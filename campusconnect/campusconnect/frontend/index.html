@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap"><link rel="stylesheet" href="css/style.css"><title>CampusConnect: log in</title></head>
+<body><main class="auth">
+<section class="auth-intro">
+<p class="brand"><span>CampusConnect</span></p>
+<h1>Report it. Track it. See it fixed.</h1>
+<p>Fan not working? Wi-Fi down? Lost your ID card? Post it once and follow it until someone resolves it.</p>
+<ol class="flow"><li class="badge open">Open</li><li class="badge in-progress">In Progress</li><li class="badge resolved">Resolved</li></ol>
+</section>
+<section class="auth-form">
+<div class="tabs" role="tablist">
+<button id="tab-login" role="tab" aria-selected="true">Log in</button>
+<button id="tab-register" role="tab" aria-selected="false">Create account</button>
+</div>
+<p class="error" id="msg" role="alert"></p>
+<form id="login-form">
+<label>Email<input type="email" name="email" autocomplete="email" required></label>
+<label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+<button class="btn" type="submit">Log in</button>
+</form>
+<form id="register-form" hidden>
+<label>Full name<input type="text" name="name" autocomplete="name" required minlength="2"></label>
+<label>College email<input type="email" name="email" autocomplete="email" required></label>
+<label>Password<input type="password" name="password" autocomplete="new-password" required minlength="6"><span class="hint">At least 6 characters.</span></label>
+<button class="btn" type="submit">Create account</button>
+</form>
+</section></main>
+<script src="js/common.js"></script><script src="js/auth.js"></script></body></html>
