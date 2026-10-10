@@ -1,13 +1,80 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap"><link rel="stylesheet" href="css/style.css"><title>Report an issue | CampusConnect</title></head>
-<body><header class="topbar" id="nav"></header>
-<main class="wrap">
-<h2 style="margin-bottom:20px">Report an issue</h2>
-<form class="panel" id="issue-form">
-<fieldset><legend>Category</legend><div class="cat-options" id="cats"></div><p class="hint" id="cat-hint"></p></fieldset>
-<label>Title<input type="text" name="title" id="title" maxlength="100" required minlength="3"></label>
-<label>Description<textarea name="description" maxlength="1000" required minlength="10" placeholder="Where is it, and what is wrong?"></textarea></label>
-<p class="error" id="msg" role="alert"></p>
-<button class="btn" type="submit">Submit issue</button>
-</form>
-</main>
-<script src="js/common.js"></script><script src="js/create-issue.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Report an issue | CampusConnect</title>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <header class="topbar" id="nav"></header>
+
+    <!-- Main content -->
+    <main class="wrap">
+
+        <h2 style="margin-bottom: 20px;">Report an issue</h2>
+
+        <!-- Issue reporting form -->
+        <form class="panel" id="issue-form">
+
+            <fieldset>
+                <legend>Category</legend>
+
+                <div class="cat-options" id="cats"></div>
+
+                <p class="hint" id="cat-hint"></p>
+            </fieldset>
+
+            <label>
+                Title
+                <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    maxlength="100"
+                    minlength="3"
+                    required
+                >
+            </label>
+
+            <label>
+                Description
+                <textarea
+                    name="description"
+                    maxlength="1000"
+                    minlength="10"
+                    required
+                    placeholder="Where is it, and what is wrong?"
+                ></textarea>
+            </label>
+
+            <!-- Error message -->
+            <p class="error" id="msg" role="alert"></p>
+
+            <button class="btn" type="submit">
+                Submit issue
+            </button>
+
+        </form>
+
+    </main>
+
+    <!-- JavaScript files -->
+    <script src="js/common.js"></script>
+    <script src="js/create-issue.js"></script>
+
+</body>
+</html>

@@ -1,22 +1,25 @@
 import sqlite3
 from pathlib import Path
 
+# Database file location
 DB_PATH = Path(__file__).parent / "campusconnect.db"
 
 
+# Connect to the database
 def get_db():
-    """One SQLite connection per request (FastAPI dependency)."""
     conn = sqlite3.connect(DB_PATH, check_same_thread=False)
     conn.row_factory = sqlite3.Row
+
     try:
         yield conn
     finally:
         conn.close()
 
 
+# Create database tables if they don't exist
 def init_db():
-    """Create the tables the first time the app starts."""
     conn = sqlite3.connect(DB_PATH)
+
     conn.executescript("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,10 +29,12 @@ def init_db():
             salt TEXT NOT NULL,
             created_at TEXT NOT NULL
         );
+
         CREATE TABLE IF NOT EXISTS sessions (
             token TEXT PRIMARY KEY,
             user_id INTEGER NOT NULL REFERENCES users(id)
         );
+
         CREATE TABLE IF NOT EXISTS issues (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
@@ -41,5 +46,6 @@ def init_db():
             updated_at TEXT NOT NULL
         );
     """)
+
     conn.commit()
     conn.close()

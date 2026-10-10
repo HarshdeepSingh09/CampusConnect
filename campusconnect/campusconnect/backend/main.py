@@ -9,16 +9,29 @@ import issues
 from database import init_db
 
 
+# Initialize the database when the server starts
 @asynccontextmanager
-async def lifespan(app):
+async def lifespan(app: FastAPI):
     init_db()
     yield
 
 
-app = FastAPI(title="CampusConnect", lifespan=lifespan)
+# Create the FastAPI application
+app = FastAPI(
+    title="CampusConnect",
+    lifespan=lifespan
+)
+
+# Register authentication and issue-related routes
 app.include_router(auth.router)
 app.include_router(issues.router)
 
-# Serve the frontend from the same server, so no CORS setup is needed.
+
+# Serve the frontend files
 FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
-app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
+
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR, html=True),
+    name="frontend"
+)
