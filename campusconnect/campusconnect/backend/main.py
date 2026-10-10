@@ -1,3 +1,4 @@
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -9,29 +10,18 @@ import issues
 from database import init_db
 
 
-# Initialize the database when the server starts
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app):
     init_db()
     yield
 
 
-# Create the FastAPI application
-app = FastAPI(
-    title="CampusConnect",
-    lifespan=lifespan
-)
-
-# Register authentication and issue-related routes
+app = FastAPI(title="CampusConnect", lifespan=lifespan)
 app.include_router(auth.router)
 app.include_router(issues.router)
 
-
-# Serve the frontend files
-FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
-
-app.mount(
-    "/",
-    StaticFiles(directory=FRONTEND_DIR, html=True),
-    name="frontend"
-)
+# Locally, FastAPI serves the website from the public/ folder.
+# On Vercel, files in public/ are served by Vercel itself.
+if not os.environ.get("VERCEL"):
+    PUBLIC_DIR = Path(__file__).parent.parent / "public"
+    app.mount("/", StaticFiles(directory=PUBLIC_DIR, html=True), name="frontend")

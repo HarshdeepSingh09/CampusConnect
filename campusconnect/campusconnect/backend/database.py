@@ -1,8 +1,12 @@
+import os
 import sqlite3
 from pathlib import Path
 
-# Database file location
-DB_PATH = Path(__file__).parent / "campusconnect.db"
+# On Vercel only /tmp is writable (and it is wiped on restarts), so use it there.
+if os.environ.get("VERCEL"):
+    DB_PATH = Path("/tmp/campusconnect.db")
+else:
+    DB_PATH = Path(__file__).parent / "campusconnect.db"
 
 
 # Connect to the database
