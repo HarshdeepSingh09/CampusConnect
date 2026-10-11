@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - CampusConnect</title>
+    <!-- Link to your existing CSS files -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- This is where your navigation bar will be injected by startPage() -->
+    <header id="nav" class="topbar"></header>
+
+    <main class="container">
+                <header class="page-header" style="text-align: center; margin-bottom: 2rem;">
+            <h1>Frequently Asked Questions</h1>
+            <p>Learn how to use CampusConnect to report and track issues around the university.</p>
+        </header>
+
+
+        <section class="faq-container">
+            
+            <details class="faq-item">
+                <summary>What is CampusConnect?</summary>
+                <div class="faq-content">
+                    <p>CampusConnect is a platform designed for students and staff to easily report, track, and prioritize campus issues like broken facilities, lost items, or general campus concerns.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I report a new issue?</summary>
+                <div class="faq-content">
+                    <p>Click on <strong>"Report issue"</strong> in the top navigation bar. Fill out a brief title, provide a detailed description of the problem, select the appropriate category (e.g., Classroom, Campus, Lost & Found), and click submit.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How does the upvote system work?</summary>
+                <div class="faq-content">
+                    <p>If you see an issue on the dashboard that also affects you, click the <strong>Upvote (▲)</strong> button! Issues with the most votes automatically move to the top of the dashboard so administration sees them first. Issues with 10 or more votes get highlighted.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What do the different issue statuses mean?</summary>
+                <div class="faq-content">
+                    <ul>
+                        <li><strong>Open:</strong> The issue has been reported but not yet addressed.</li>
+                        <li><strong>In Progress:</strong> The administration or maintenance team is currently working on it.</li>
+                        <li><strong>Resolved:</strong> The issue has been successfully fixed or closed.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I delete or edit an issue I posted?</summary>
+                <div class="faq-content">
+                    <p>Currently, once an issue is posted, it becomes visible to the campus. If you made a severe mistake, please contact the administrators to have the ticket removed.</p>
+                </div>
+            </details>
+
+        </section>
+    </main>
+
+    <!-- Link to your common JS file to load the navbar -->
+    <script src="js/common.js"></script>
+    <script>
+        // Load the navbar and set 'faq' as the active page
+        startPage('faq');
+    </script>
+</body>
+</html>
